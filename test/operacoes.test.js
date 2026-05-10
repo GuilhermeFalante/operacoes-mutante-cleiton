@@ -17,7 +17,7 @@ describe('Suíte de Testes Fraca para 50 Operações Aritméticas', () => {
   test('3. deve multiplicar dois números positivos', () => { expect(multiplicacao(3, 4)).toBe(12); });
   test('4. deve dividir e lançar erro para divisão por zero', () => {
     expect(divisao(10, 2)).toBe(5);
-    expect(() => divisao(5, 0)).toThrow();
+    expect(() => divisao(5, 0)).toThrow('Divisão por zero não é permitida.');
   });
   test('5. deve calcular a potência com expoente positivo', () => { expect(potencia(2, 3)).toBe(8); });
   test('6. deve calcular a raiz quadrada de um quadrado perfeito', () => { expect(raizQuadrada(16)).toBe(4); });
@@ -32,6 +32,7 @@ describe('Suíte de Testes Fraca para 50 Operações Aritméticas', () => {
   test('13. deve retornar o valor absoluto de um número negativo', () => { expect(valorAbsoluto(-5)).toBe(5); });
   test('14. deve arredondar um número para cima', () => { expect(arredondar(9.8)).toBe(10); });
   test('15. deve retornar true para um número par', () => { expect(isPar(100)).toBe(true); });
+  test('15.1 deve retornar false para um número ímpar', () => { expect(isPar(101)).toBe(false); });
   test('16. deve retornar true para um número ímpar', () => { expect(isImpar(7)).toBe(true); });
   test('17. deve calcular uma porcentagem simples', () => { expect(calcularPorcentagem(50, 200)).toBe(100); });
   test('18. deve aumentar um valor em uma porcentagem', () => { expect(aumentarPorcentagem(100, 10)).toBeCloseTo(110); });
@@ -54,6 +55,11 @@ describe('Suíte de Testes Fraca para 50 Operações Aritméticas', () => {
   test('31. deve calcular o MDC de dois números', () => { expect(mdc(10, 5)).toBe(5); });
   test('32. deve calcular o MMC de dois números', () => { expect(mmc(10, 5)).toBe(10); });
   test('33. deve verificar que um número é primo', () => { expect(isPrimo(7)).toBe(true); });
+  test('33.1 deve retornar false para número composto', () => { expect(isPrimo(9)).toBe(false); });
+  test('33.2 deve retornar false para n <= 1', () => {
+    expect(isPrimo(1)).toBe(false);
+    expect(isPrimo(0)).toBe(false);
+  });
   test('34. deve calcular o 10º termo de Fibonacci', () => { expect(fibonacci(10)).toBe(55); });
   test('35. deve calcular o produto de um array', () => { expect(produtoArray([2, 3, 4])).toBe(24); });
   test('36. deve manter um valor dentro de um intervalo (clamp)', () => { expect(clamp(5, 0, 10)).toBe(5); });

@@ -10,7 +10,7 @@ function divisao(a, b) {
 }
 function potencia(base, expoente) { return Math.pow(base, expoente); }
 function raizQuadrada(n) {
-  if (n < 0) throw new Error('Não é possível calcular a raiz quadrada de um número negativo.');
+  if (n <= 0) throw new Error('Não é possível calcular a raiz quadrada de um número negativo.');
   return Math.sqrt(n);
 }
 function restoDivisao(dividendo, divisor) { return dividendo % divisor; }
